@@ -3,11 +3,12 @@ require('pry')
 require('anagram')
 
 describe('String#grams') do
-    it('splits word into an array') do
-        expect("dog".grams()).to(eql(["d", "o", "g"]))
-    end
-    it('a sort array') do
-        expect("dog".grams()).to(eql(["d", "g", "o"]))
+
+    it('compares two words and returns true if equal if same letters used') do
+        expect("dog".grams("god")).to(eql(true))
     end
 
+    it('splits multiple words into an array and compares to given word') do
+        expect("dog load try".grams("god")).to(eql("dog"))
+    end
 end
